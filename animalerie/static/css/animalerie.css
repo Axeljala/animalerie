@@ -1,0 +1,74 @@
+.header {
+    background-color: coral;
+    margin-top: 0;
+    padding: 20px 20px 20px 40px;
+}
+
+.header h1,
+.header h1 a,
+.header h1 a:visited,
+.header h1 a:active {
+    color: #ffffff;
+    font-size: 36pt;
+    text-decoration: none;
+}
+
+.content {
+    padding: auto;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: 'Lobster', cursive;
+}
+
+.dispo,
+.lieu {
+    color: #828282;
+}
+
+.top-menu,
+.top-menu:hover,
+.top-menu:visited {
+    color: #ffffff;
+    float: right;
+    font-size: 26pt;
+    margin-right: 20px;
+}
+
+.soustitres {
+    text-align: center;
+}
+
+#titredesc {
+    font-size: 50px;
+}
+
+#equipdesc,
+#animaldesc {
+    margin-top: 20px;
+    text-align: center;
+    font-size: x-large;
+}
+
+.animal,
+.equip {
+    background-color: aliceblue;
+    margin: 5px;
+    width: 230px;
+    text-align: center;
+}
+
+.content {
+    width: 100%;
+}
+
+.photo {
+    width: 200px;
+    height: 200px;
+    background-color: white;
+    border-style: solid;
+    border-color: black;
+}

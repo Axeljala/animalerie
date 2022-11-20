@@ -1,0 +1,53 @@
+{% load static %}
+<html>
+
+<head>
+    <title>MyAnimalerie</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/animalerie.css' %}">
+</head>
+
+<body>
+    <div class="header">
+        <h1><a href="/">L' Animalerie</a></h1>
+    </div>
+    <div class="content container">
+        <div class="row">
+            <div class="col-sm-6">
+                <h1 class="soustitres">Les Animaux</h1>
+                {% block 1 %}
+                {% endblock %}
+            </div>
+            <div class="col-sm-6">
+                <h1 class="soustitres">Les Equipements</h1>
+                {% block 2 %}
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+{% extends 'animalerie/base.html' %}
+
+{% block 1 %}
+{% for animal in animals %}
+<div class="animal col-sm-6">
+    <h2><a href="{% url 'animal_detail' pk=animal.pk %}">{{ animal.id_animal }}</a></h2>
+    <p>{{ animal.etat }}, {{ animal.race }}, {{ animal.type }}</p>
+    <p class="lieu">Actuellement dans: {{ animal.lieu }}</p>
+</div>
+{% endfor %}
+{% endblock %}
+
+{% block 2 %}
+{% for equip in equipements %}
+<div class="equip col-sm-6">
+    <h2><a href="{% url 'equipment_detail' pk=equip.pk %}">{{ equip.id_equip}}</a></h2>
+    <p class="dispo">disponibilité : {{ equip.disponibilite }}</p>
+</div>
+{% endfor %}
+{% endblock %}

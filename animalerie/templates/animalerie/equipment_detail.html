@@ -1,0 +1,30 @@
+{% extends 'animalerie/base.html' %}
+{% load static %}
+{% block 1 %}
+<link rel="stylesheet" href="{% static 'css/equip_detail.css' %}">
+<div id="equipdesc">
+    <img id="photo" src={% static equipment.photo %}>
+    <h1 id="titredesc">{{ equipment.id_equip }}</h1>
+    <p class="dispo">Disponibilité : {{ equipment.disponibilite }}</p>
+    <ul class="liste">Règles:
+        <li>Tous les équipements présents dans l'animalerie sauf la litière ont une capacité d'accueil d'un seul
+            animal à la fois!
+        </li>
+        <li>
+            Un animal <b>affamé</b> doit être placé dans la <b>mangeoire</b> pour pouvoir être repus
+        </li>
+        <li>
+            Un animal <b>repus</b> doit être placé dans la <b>roue</b> pour pouvoir s'exercer un peu
+        </li>
+        <li>
+            Un animal <b>fatigué</b> doit être placé dans le <b>nid</b> pour pouvoir se reposer
+        </li>
+        <li>
+            Un animal <b>endormi</b> doit être placé dans la <b>litière</b> pour pouvoir se soulager à son réveil
+        </li>
+    </ul>
+    <button><a href="{% url 'accueil' %}">retour accueil</a></button>
+</div>
+{% endblock %}
+{% block 2 %}
+{% endblock %}
