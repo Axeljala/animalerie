@@ -52,21 +52,25 @@ def animal_detail(request, pk):
                     form.clean()
                     message = "Mouvement non autorisé"
                     print("Mouvement interdit")
-                    render(request, "animalerie/animal_detail.html", {"animal": animal, "lieu": lieu, "form": form, "message": message})
+                    return render(request,"animalerie/animal_detail.html",{"animal": animal, "lieu": lieu, "form": form, "message": message})
                 ancien_lieu.save()
                 nouveau_lieu.save()
                 animal.save()
-                render(request, "animalerie/animal_detail.html", {"animal": animal, "lieu": lieu, "form": form, "message": message})
+                return redirect("animal_detail", pk=pk)
             else:
                 form.clean()
                 message = "Equipement déjà occupé"
                 print("Equipement occupe")
-                render(request, "animalerie/animal_detail.html", {"animal": animal, "lieu": lieu, "form": form, "message": message})
+                return render(request,"animalerie/animal_detail.html",{"animal": animal, "lieu": lieu, "form": form, "message": message})
         else:
             form = MoveForm()
     else:
         form = MoveForm()
-    return render(request, "animalerie/animal_detail.html", {"animal": animal, "lieu": lieu, "form": form, "message": message})
+    return render(
+        request,
+        "animalerie/animal_detail.html",
+        {"animal": animal, "lieu": lieu, "form": form, "message": message},
+    )
 
 
 def equipment_detail(request, pk):

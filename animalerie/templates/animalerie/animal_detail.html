@@ -10,6 +10,7 @@
 <div id="animaldesc">
     <img src={% static animal.photo %}>
     <h1 id="titredesc">{{ animal.id_animal }}</h1>
+    <!-- <p class="lieu">Actuellement dans: {{ animal.lieu }}</p> -->
     <p>{{ animal.etat }}, {{ animal.race }}, {{ animal.type }}</p>
     <form method="POST" class="post-form">{% csrf_token %}
         <b> Changer : </b> {{ form.as_ul }}
